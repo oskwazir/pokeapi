@@ -4,6 +4,7 @@ const Wreck = require('wreck');
 const server = new Hapi.Server();
 const baseURI    = 'http://pokeapi.co/api/v1/';
 const SECOND = 1000;
+const PORT = process.env.port || 8080;
 
 const index = function index(request,reply){
   Wreck.get(baseURI,null,function(err,response,payload){
@@ -29,8 +30,7 @@ const getPokedex = function (next){
 }
 
 server.connection({
-  host:'localhost',
-  port: Number(process.argv[2] || 8080)
+  port: PORT
 });
 
 server.method('getPokedex',getPokedex,{
