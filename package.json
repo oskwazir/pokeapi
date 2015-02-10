@@ -1,0 +1,30 @@
+{
+  "name": "pokeapi",
+  "version": "1.0.0",
+  "description": "PokeAPI built with Hapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thewazir/pokeapi.git"
+  },
+  "keywords": [
+    "PokeAPI",
+    "Hapi",
+    "Caching",
+    "Redis"
+  ],
+  "author": "Omer Wazir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thewazir/pokeapi/issues"
+  },
+  "homepage": "https://github.com/thewazir/pokeapi",
+  "dependencies": {
+    "catbox-redis": "^1.0.4",
+    "hapi": "^8.2.0",
+    "wreck": "^5.1.0"
+  }
+}
