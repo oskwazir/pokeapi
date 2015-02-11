@@ -1,9 +1,12 @@
 "use strict";
 const Hapi = require('hapi');
 const Wreck = require('wreck');
-const server = new Hapi.Server();
+const server = new Hapi.Server({cache: require('catbox-redis')});
 const baseURI    = 'http://pokeapi.co/api/v1/';
 const SECOND = 1000;
+const MINUTE = 60 * SECOND;
+const HOUR =  60 * MINUTE;
+const DAY = 24 * HOUR;
 const PORT = process.env.port || 8080;
 
 const index = function index(request,reply){
@@ -35,7 +38,9 @@ server.connection({
 
 server.method('getPokedex',getPokedex,{
   cache: {
-    expiresIn: 10 * SECOND
+    expiresIn: DAY,
+    staleIn: HOUR,
+    staleTimeout: 200
   }
 })
 
