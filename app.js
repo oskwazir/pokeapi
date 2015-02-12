@@ -68,7 +68,7 @@ server.route({
     cors: {
       origin: [
       'http://localhost:3000',
-      'http://pokemon-react-staging.azurewebsites.net/'
+      'http://pokemon-react-staging.azurewebsites.net'
       ],
       methods:['GET']
     }
