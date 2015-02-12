@@ -63,7 +63,14 @@ server.route({
 server.route({
   path:'/pokedex',
   method:'GET',
-  handler: pokedex
+  config:{
+    handler: pokedex,
+    cors: {
+      origin: ['http://localhost:3000','http://pokemon-react-*.azurewebsites.net'],
+      methods:['GET']
+    }
+  }
+  
 });
 
 server.start(function () {
