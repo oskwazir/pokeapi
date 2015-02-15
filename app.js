@@ -69,7 +69,7 @@ server.route({
       origin: [
       'http://localhost:3000',
       'http://10.0.1.9:3000',
-      'http://pokemon-react-staging.azurewebsites.net/'
+      'http://pokemon-react-staging.azurewebsites.net'
       ],
       methods:['GET']
     }
