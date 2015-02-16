@@ -49,32 +49,16 @@ server.connection({
 server.method('getPokedex',getPokedex,{
   cache: {
     expiresIn: DAY,
-    staleIn: HOUR,
-    staleTimeout: 200
+    staleIn: (12 * HOUR),
+    staleTimeout: 100
   }
 });
 
-server.route({
-  path:'/',
-  method:'GET',
-  handler: index
+require('./routes/routes')(server,{
+  index:index,
+  pokedex:pokedex
 });
 
-server.route({
-  path:'/pokedex',
-  method:'GET',
-  config:{
-    handler: pokedex,
-    cors: {
-      origin: [
-      'http://localhost:3000',
-      'http://pokemon-react-staging.azurewebsites.net'
-      ],
-      methods:['GET']
-    }
-  }
-  
-});
 
 server.start(function () {
     console.log(`Server running at: ${server.info.uri}`);
