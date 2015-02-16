@@ -12,8 +12,9 @@ module.exports = function(server,handlers){
       handler: handlers.pokedex,
       cors: {
         origin: [
-        'http://localhost:3000',
-        'http://pokemon-react-staging.azurewebsites.net'
+          'http://localhost:3000',
+          'http://10.0.1.9:3000',
+          'http://pokemon-react-staging.azurewebsites.net'
         ],
         methods:['GET']
       }

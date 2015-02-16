@@ -59,7 +59,6 @@ require('./routes/routes')(server,{
   pokedex:pokedex
 });
 
-
 server.start(function () {
     console.log(`Server running at: ${server.info.uri}`);
     console.log(`Redis cache at ${REDIS_HOST}:${REDIS_PORT}`);
